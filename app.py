@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-import privateGPT
+import supportGPT
 import traceback
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def index():
 def chat():
     try:
         message = request.form['message']
-        response = privateGPT.run_model(message)
+        response = supportGPT.run_model(message)
         return jsonify(response=response)
     except Exception as e:
         print("Exception occurred:", str(e))
